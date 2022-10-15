@@ -3,10 +3,10 @@ import Grid from "@mui/material/Grid";
 import { AllPersons } from "../../Models/Person";
 import { Title, Main } from "./LoginStyle";
 import { Button, TextField } from "@mui/material";
+import { Router } from "@mui/icons-material";
 
 interface IProps {
-  info: number;
-  person: AllPersons | null;
+  goToHome: () => void
 }
 
 const inputLoginProps = {
@@ -17,7 +17,7 @@ const inputSenhaProps = {
   step: 300,
 };
 
-const LoginView = ({ info, person }: IProps) => { 
+const LoginView = ({ goToHome }: IProps) => { 
   return (
     <Main>
       <Grid
@@ -48,8 +48,8 @@ const LoginView = ({ info, person }: IProps) => {
         <hr></hr>
         <Button 
           variant="outlined" 
-          onClick={() => {
-              alert('clicou em logar');
+          onClick={() => { 
+            goToHome();
           }}>
           Logar
         </Button>
