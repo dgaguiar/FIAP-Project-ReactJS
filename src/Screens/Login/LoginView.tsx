@@ -1,7 +1,7 @@
 import * as React from "react";
 import Grid from "@mui/material/Grid";
 import { AllPersons } from "../../Models/Person";
-import { Title, Main } from "./HomeStyle";
+import { Title, Main } from "./LoginStyle";
 import { Button, TextField } from "@mui/material";
 
 interface IProps {
@@ -17,7 +17,7 @@ const inputSenhaProps = {
   step: 300,
 };
 
-const HomeView = ({ info, person }: IProps) => { 
+const LoginView = ({ info, person }: IProps) => { 
   return (
     <Main>
       <Grid
@@ -58,4 +58,4 @@ const HomeView = ({ info, person }: IProps) => {
   );
 };
 
-export default HomeView;
+export default LoginView;

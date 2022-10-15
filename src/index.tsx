@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
-import HomeController from "./Screens/Home/HomeController";
+import LoginController from "./Screens/Login/LoginController";
 import MuiThemes from "./Utils/Common/MuiThemes";
 
 const root = ReactDOM.createRoot(
@@ -11,7 +11,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <MuiThemes>
-      <HomeController />
+      <LoginController />
     </MuiThemes>
   </React.StrictMode>
 );

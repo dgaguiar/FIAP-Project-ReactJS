@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import useAPI from "../../Services/APIs/Common/useAPI";
 import persons from "../../Services/APIs/Persons/Persons";
-import HomeView from "./HomeView";
+import LoginView from "./LoginView";
 
-export default function HomeController() {
+export default function LoginController() {
   const [count, setCount] = useState(0);
   const getPersonsGetAPI = useAPI(persons.getPersons);
   const getPersonsPostAPI = useAPI(persons.getPersonsPost);
@@ -27,5 +27,5 @@ export default function HomeController() {
   // console.log(getPersonsGetAPI.data);
   // console.log(getPersonsPostAPI.data);
 
-  return <HomeView info={count} person={getPersonsGetAPI.data} />;
+  return <LoginView info={count} person={getPersonsGetAPI.data} />;
 }
