@@ -1,13 +1,8 @@
-export interface Products {
+import { ProductInfo } from "./ProductInfo";
+
+export interface Product {
     totalItems: Number,
     page: Number,
     perPage: Number,
-    products: [Product]
+    products: [ProductInfo]
 };
-
-export interface Product {
-    _id: Number,
-    name: string,
-    price: string,
-    favorite: boolean
-}

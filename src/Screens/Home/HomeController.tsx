@@ -11,7 +11,9 @@ export default function HomeController() {
 
     const onProductsButton = () => {
         navigate("produtos/", {
-            state: { },
+            state: { 
+                logout: {onBackButton}
+            },
           });
       };
     

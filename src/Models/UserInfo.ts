@@ -1,6 +1,7 @@
 export interface UserInfo {
-    userId: string | undefined;
-    name: string | undefined;
-    token: string | undefined;
+    name: string;
     phone: string;
+    token: string;
+    userId: string;
+    message?: string;
 };

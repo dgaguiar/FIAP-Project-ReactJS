@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductsView from "./ProductsView";
 import { FormikHelpers } from "formik";
 import { AxiosError } from "axios";
 import auth from "../../Services/APIs/Products/Products";
 import useAPI, { useApiReturnType } from "../../Services/APIs/Common/useAPI";
-import { Products } from "../../Models/Product";
+import { Product } from "../../Models/Product";
+import ProductContext, { ProductContextType } from "../../Store/Product/ProductContext";
 
 export type FormProductType = {
   perPage: Number;
@@ -13,6 +14,7 @@ export type FormProductType = {
 
 export default function ProductsController() {
   const authLoginAPI: useApiReturnType = useAPI(auth.products);
+  const context = useContext<ProductContextType>(ProductContext);
   const [connectMessage, setConnectMessage] = useState<string>("");
   const [connectCode, setConnectCode] = useState<number>(0);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -30,15 +32,15 @@ export default function ProductsController() {
     setIsLoading(true);
     authLoginAPI
       .requestPromise(infoSend)
-      .then((info: Products) => {
+      .then((info: Product) => {
         console.log(info);
         setIsLoading(false);
-        // context.makeLogin({
-        //   userId: info.userId,
-        //   name: info.name,
-        //   token: info.token,
-        //   phone: info.phone
-        // });
+        context.getProduct({
+          page: info.page,
+          perPage: info.perPage,
+          totalItems: info.totalItems,
+          products: info.products
+        })
         setConnectMessage("Success products");
       })
       .catch((error: AxiosError) => {
@@ -56,5 +58,5 @@ export default function ProductsController() {
     const onBackButton = () => {
       navigate(-1);
     };
-   return <ProductsView logout={onBackButton}/>  
+   return <ProductsView logout={onBackButton} product={context.product} statusConnection={200} />  
 }

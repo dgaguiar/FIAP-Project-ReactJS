@@ -11,13 +11,11 @@ const routes = () => {
   return (
     <Routes>
       <Route path="/" element={<LoginController />} />
-      <Route path="home" element={<HomeController />}>
+      <Route path="home" element={<HomeController />} />
       <Route path="produtos" element={<ProductsController/>} />
       <Route path="detalhesDoProduto" element={< DetailController/>} />
       <Route path="favoritos" element={<FavoriteController/>} />
       <Route path="cadastro" element={<RegistrationController/>} />
-      </Route>
-      
     </Routes>
   );
 };
