@@ -22,7 +22,7 @@ export default function HomeController() {
     };
 
     const onRegistrationButton = () => {
-        navigate("home/cadastro/", {
+        navigate("cadastro/", {
             state: { },
         });
     };
