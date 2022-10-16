@@ -12,6 +12,7 @@ interface ProductProps {
 }
 
 const ProductsView = ({ logout, product, statusConnection }: ProductProps) => {
+  
   return (
     <Main>
       <Grid
@@ -42,16 +43,6 @@ const ProductsView = ({ logout, product, statusConnection }: ProductProps) => {
           Favorito? {product.products[0].favorite} 
         </Title>
       </Grid>
-      {/* <Container maxWidth="xl">
-        <Stack direction='column'
-          spacing={6}
-          justifyContent="center"
-          alignItems="center"
-          className={styles.StackClass}
-        >
-          {mountInfo}
-        </Stack>
-      </Container> */}
     </Main>
   );
 };
